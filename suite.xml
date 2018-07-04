@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="TestSuite" thread-count="5" parallel="false">
+
+
+    <test name="ChromeTest">
+        <parameter name="browser" value="Chrome"/>
+        <parameter name="platform" value="WINDOWS"/>
+        <classes>
+            <class name="GloboMainPage"></class>
+        </classes>
+    </test>
+
+    <test name="OperaTest">
+        <parameter name="browser" value="Opera"/>
+        <parameter name="platform" value="WINDOWS"/>
+        <classes>
+            <class name="GloboMainPage">
+            </class>
+        </classes>
+    </test>
+
+    <test name="FirefoxTest">
+        <parameter name="browser" value="Firefox"/>
+        <parameter name="platform" value="WINDOWS"/>
+        <classes>
+            <class name="GloboMainPage">
+            </class>
+        </classes>
+    </test>
+
+</suite>
