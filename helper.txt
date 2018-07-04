@@ -1,0 +1,5 @@
+java -jar selenium-server-standalone-3.13.0.jar -role hub -hubConfig gridHubConfig.json
+
+FOR WINDOWS PLEASE USE ------>  java -Dwebdriver.chrome.driver="C:\Users\Oksana_Starazhok\Desktop\Selenium Grid\chromedriver.exe" -Dwebdriver.opera.driver="C:\Users\Oksana_Starazhok\Desktop\Selenium Grid\operadriver.exe" -Dwebdriver.gecko.driver="C:\Users\Oksana_Starazhok\Desktop\Selenium Grid\geckodriver.exe" -jar selenium-server-standalone-3.13.0.jar -role node -nodeConfig nodeconfig_1.json
+
+FOR LINUX PLEASE USE ------->   java -Dwebdriver.chrome.driver="chromedriver" -Dwebdriver.gecko.driver="geckodriver" -jar selenium-server-standalone-3.12.0.jar -role node -nodeConfig nodeconfig_2.json
