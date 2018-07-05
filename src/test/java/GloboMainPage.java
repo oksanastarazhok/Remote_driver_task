@@ -6,8 +6,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
@@ -15,13 +14,13 @@ import java.net.URL;
 
 public class GloboMainPage {
 
-    @Test
-    @Parameters({"browser", "platform"})
+    @Test(parameters ={"browser", "platform"})
+
 
 /**
  * Works only in Firefox and Chrome.
  */
-    public void test(@Optional("firefox") String browser, String platform) throws MalformedURLException {
+    public void test( String browser, String platform) throws MalformedURLException {
 
         DesiredCapabilities cap = new DesiredCapabilities();
         if (browser.equalsIgnoreCase("chrome")) {
