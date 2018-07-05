@@ -1,6 +1,5 @@
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -14,13 +13,10 @@ import java.net.URL;
 
 public class GloboMainPage {
 
-    @Test(parameters ={"browser", "platform"})
+    @Test(parameters = {"browser", "platform"})
 
 
-/**
- * Works only in Firefox and Chrome.
- */
-    public void test( String browser, String platform) throws MalformedURLException {
+    public void test(String browser, String platform) throws MalformedURLException {
 
         DesiredCapabilities cap = new DesiredCapabilities();
         if (browser.equalsIgnoreCase("chrome")) {
@@ -37,8 +33,6 @@ public class GloboMainPage {
             options.setBinary("C:\\Program Files\\Opera\\54.0.2952.41\\opera.exe");
             cap.setCapability(ChromeOptions.CAPABILITY, options);
 
-//            cap.setBrowserName("opera");
-//            cap.setPlatform(Platform.fromString(platform));
         }
 
 
