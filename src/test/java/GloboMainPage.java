@@ -13,20 +13,27 @@ import java.net.URL;
 
 public class GloboMainPage {
 
-    @Test(parameters = {"browser", "platform"})
+    @Test
 
 
-    public void test(String browser, String platform) throws MalformedURLException {
+    public void test( String browser, String platform) throws MalformedURLException {
+        String browserName = System.getProperty("browserName");
+        String osName = System.getProperty("osName");
+
+        System.out.println(browserName);
+        System.out.println(osName);
+
+
 
         DesiredCapabilities cap = new DesiredCapabilities();
-        if (browser.equalsIgnoreCase("chrome")) {
+        if (browserName.equalsIgnoreCase("chrome")) {
             cap.setBrowserName("chrome");
             cap.setPlatform(Platform.fromString(platform));
 
-        } else if (browser.equalsIgnoreCase("firefox")) {
+        } else if (browserName.equalsIgnoreCase("firefox")) {
             cap.setBrowserName("firefox");
             cap.setPlatform(Platform.fromString(platform));
-        } else if (browser.equalsIgnoreCase("opera")) {
+        } else if (browserName.equalsIgnoreCase("opera")) {
 
             System.setProperty("webdriver.chrome.driver", "operadriver.exe");
             ChromeOptions options = new ChromeOptions();
@@ -34,7 +41,6 @@ public class GloboMainPage {
             cap.setCapability(ChromeOptions.CAPABILITY, options);
 
         }
-
 
         URL url = new URL("http://10.6.126.55:4444/wd/hub");
         WebDriver driver = new RemoteWebDriver(url, cap);
