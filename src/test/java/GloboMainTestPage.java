@@ -6,16 +6,16 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 
 
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class GloboMainPage {
+public class GloboMainTestPage {
 
+    @Parameters({"browserName","osName"})
     @Test
-
-
     public void test( String browser, String platform) throws MalformedURLException {
         String browserName = System.getProperty("browserName");
         String osName = System.getProperty("osName");
@@ -42,7 +42,7 @@ public class GloboMainPage {
 
         }
 
-        URL url = new URL("http://10.6.126.55:4444/wd/hub");
+        URL url = new URL("http://192.168.100.6:4444/wd/hub");
         WebDriver driver = new RemoteWebDriver(url, cap);
         driver.get("https://www.globoforce.com/");
         Assert.assertEquals(driver.getTitle(), "Globoforce | Elevate Workplace Culture and Performance | Globoforce");
