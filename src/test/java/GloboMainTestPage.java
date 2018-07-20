@@ -18,7 +18,7 @@ public class GloboMainTestPage {
 
     @Parameters({"browserName", "osName"})
     @BeforeTest(alwaysRun = true)
-
+    //define configuration variables
     public void setup(String browser, String platform) throws MalformedURLException {
         String browserName = System.getProperty("browserName");
         String osName = System.getProperty("osName");
@@ -28,14 +28,14 @@ public class GloboMainTestPage {
 
 
         DesiredCapabilities cap = new DesiredCapabilities();
-
+        //Browsers
         if (browserName.equalsIgnoreCase("chrome")) {
             cap.setBrowserName("chrome");
-            cap.setPlatform(Platform.fromString(platform));
+
 
         } else if (browserName.equalsIgnoreCase("firefox")) {
             cap.setBrowserName("firefox");
-            cap.setPlatform(Platform.fromString(platform));
+
         } else if (browserName.equalsIgnoreCase("opera")) {
 
             System.setProperty("webdriver.chrome.driver", "operadriver.exe");
@@ -44,7 +44,14 @@ public class GloboMainTestPage {
             cap.setCapability(ChromeOptions.CAPABILITY, options);
 
         }
+        //Platform
+        if (osName.equalsIgnoreCase("windows")) {
+            cap.setPlatform(Platform.WINDOWS);
+        } else {
+            cap.setPlatform(Platform.LINUX);
+        }
 
+        //initiate hub's driver
         URL url = new URL("http://10.6.126.55:4444/wd/hub");
         driver = new RemoteWebDriver(url, cap);
 
@@ -52,8 +59,9 @@ public class GloboMainTestPage {
 
     @Test
     public void test() {
-
+        //Open webpage
         driver.get("https://www.globoforce.com/");
+        //Verify we are on the correct page
         Assert.assertEquals(driver.getTitle(), "Globoforce | Elevate Workplace Culture and Performance | Globoforce");
         driver.quit();
     }
